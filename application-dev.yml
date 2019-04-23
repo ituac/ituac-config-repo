@@ -13,5 +13,3 @@ spring:
     proxy-target-class: true
     auto: true
 
-www:
-  123456
