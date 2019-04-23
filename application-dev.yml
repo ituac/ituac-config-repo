@@ -100,9 +100,7 @@ hystrix:
             timeoutInMilliseconds: 20000
 
 info:
-  软件著作权: paascloud快速搭建企业级分布式微服务平台
-  著作登记号: 2018SR320076
-  关于我们: http://paascloud.net
+  关于我们: http://ituac.com
 
 paascloud:
   auth:
@@ -116,7 +114,7 @@ paascloud:
     rocketMq:
       namesrvAddr: paascloud-mq-rocket:9876
     sms:
-      signName: 快乐学习网
+      signName: ituac
       regionId: cn-beijing
       endpoint:
       endpointName: cn-beijing
