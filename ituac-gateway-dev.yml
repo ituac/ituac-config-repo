@@ -20,7 +20,7 @@ security:
       user-info-uri: http://ituac-gateway:7979/uac/user
       prefer-token-info: false
       jwt:
-        key-uri: 
+        key-uri: http://ituac-gateway:7979/uac/user
 
 
 zuul:
