@@ -23,3 +23,5 @@ spring:
     port: 6379
     timeout: 0
 
+yun:
+  peng
