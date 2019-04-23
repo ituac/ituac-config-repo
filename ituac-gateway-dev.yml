@@ -14,8 +14,8 @@ security:
     client:
       clientId: ituac-client-gateway
       clientSecret: ituacClientSecret
-      access-token-uri:  
-      user-authorization-uri: 
+      access-token-uri: http://ituac-gateway:7979/uac/user
+      user-authorization-uri: http://ituac-gateway:7979/uac/user
     resource:
       user-info-uri: http://ituac-gateway:7979/uac/user
       prefer-token-info: false
