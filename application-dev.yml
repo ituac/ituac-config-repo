@@ -12,4 +12,14 @@ spring:
   aop:
     proxy-target-class: true
     auto: true
+  rabbitmq:
+    host: 192.168.100.77
+    port: 5672
+    username: admin
+    password: admin
+  redis:
+    host: 192.168.100.77
+    password: 123456
+    port: 6379
+    timeout: 0
 
