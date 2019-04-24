@@ -44,6 +44,6 @@ ituac:
         scope: "*"
       clients[1]:
         clientId: ituac-client-gateway
-        clientSecret: paascloudClientSecret
+        clientSecret: ituacClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
