@@ -27,7 +27,7 @@ ituac:
     interceptor:
       enable: true
   oauth2:
-    jwtSigningKey: paascloud
+    jwtSigningKey: ituac
     client:
       id: ${security.oauth2.resource.id}
       accessTokenUrl: ${security.oauth2.client.access-token-uri}
