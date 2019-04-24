@@ -19,7 +19,7 @@ zuul:
       path: /uac/**
       sensitiveHeaders:
 #      strip-prefix: false
-      service-id: paascloud-provider-uac
+      service-id: ituac-service-uac
       ribbon:
         eager-load:
           enabled: true
@@ -94,8 +94,8 @@ zuul:
 security:
   oauth2:
     client:
-      clientId: paascloud-client-gateway
-      clientSecret: paascloudClientSecret
+      clientId: ituac-client-gateway
+      clientSecret: ituacClientSecret
       access-token-uri: http://ituac-gateway:7979/uac/oauth/token
       user-authorization-uri: http://ituac-gateway:7979/uac/oauth/authorize
     resource:
