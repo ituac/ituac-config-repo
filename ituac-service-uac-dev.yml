@@ -1,0 +1,49 @@
+spring:
+  mvc:
+    date-format: yyyy-MM-dd HH:mm:ss
+  jackson:
+    joda-date-time-format: yyyy-MM-dd HH:mm:ss
+    date-format: yyyy-MM-dd HH:mm:ss
+
+
+
+security:
+  oauth2:
+    client:
+      clientId: ituac-client-uac
+      clientSecret: ituacClientSecret
+      access-token-uri: http://ituac-gateway:7979/uac/oauth/token
+      user-authorization-uri: http://ituac-gateway:7979/uac/oauth/authorize
+    resource:
+      id: ituac-resource-uac
+      filter-order: 3
+
+ituac:  
+  auth:
+    rest-pwd-url: http://dev-login.paascloud.net/resetPwd?resetPwdKey=
+    active-user-url: http://ituac-gateway:7979/uac/auth/activeUser/
+    refresh-token-url: http://ituac-gateway:7979/uac/oauth/token
+  token:
+    interceptor:
+      enable: true
+  oauth2:
+    jwtSigningKey: paascloud
+    client:
+      id: ${security.oauth2.resource.id}
+      accessTokenUrl: ${security.oauth2.client.access-token-uri}
+      clientId: ${security.oauth2.client.clientId}
+      clientSecret: ${security.oauth2.client.clientSecret}
+      clientAuthenticationScheme: header
+  security:
+    oauth2:
+      tokenStore: jwt
+      clients[0]:
+        clientId: ituac-client-uac
+        clientSecret: ituacClientSecret
+        accessTokenValidateSeconds: 7200
+        scope: "*"
+      clients[1]:
+        clientId: ituac-client-gateway
+        clientSecret: paascloudClientSecret
+        accessTokenValidateSeconds: 7200
+        scope: "*"
