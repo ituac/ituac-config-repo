@@ -10,40 +10,19 @@ spring:
 security:
   oauth2:
     client:
-      clientId: ituac-client-uac
+      clientId: ituac-browser
       clientSecret: ituacClientSecret
-      access-token-uri: http://ituac-gateway:7979/uac/oauth/token
-      user-authorization-uri: http://ituac-gateway:7979/uac/oauth/authorize
+      access-token-uri: http://localhost:7979/uac/oauth/token
+      user-authorization-uri: http://localhost:7979/uac/oauth/authorize
     resource:
-      id: ituac-resource-uac
-      filter-order: 3
-
-ituac:  
-  auth:
-    rest-pwd-url: http://dev-login.paascloud.net/resetPwd?resetPwdKey=
-    active-user-url: http://ituac-gateway:7979/uac/auth/activeUser/
-    refresh-token-url: http://ituac-gateway:7979/uac/oauth/token
-  token:
-    interceptor:
-      enable: true
+      id: browser-service
+      user-info-uri: http://localhost:7979/uac/user
+      
+ituac:
   oauth2:
-    jwtSigningKey: ituac
     client:
       id: ${security.oauth2.resource.id}
-      accessTokenUrl: ${security.oauth2.client.access-token-uri}
+      accessTokenUrl: http://localhost:7979/uac/oauth/token
       clientId: ${security.oauth2.client.clientId}
       clientSecret: ${security.oauth2.client.clientSecret}
       clientAuthenticationScheme: header
-  security:
-    oauth2:
-      tokenStore: jwt
-      clients[0]:
-        clientId: ituac-client-uac
-        clientSecret: ituacClientSecret
-        accessTokenValidateSeconds: 7200
-        scope: "*"
-      clients[1]:
-        clientId: ituac-client-gateway
-        clientSecret: ituacClientSecret
-        accessTokenValidateSeconds: 7200
-        scope: "*"
