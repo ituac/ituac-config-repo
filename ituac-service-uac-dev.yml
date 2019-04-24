@@ -26,3 +26,16 @@ ituac:
       clientId: ${security.oauth2.client.clientId}
       clientSecret: ${security.oauth2.client.clientSecret}
       clientAuthenticationScheme: header
+
+oauth2:
+      tokenStore: jwt
+      clients[0]:
+        clientId: ituac-client-uac
+        clientSecret: ituacClientSecret
+        accessTokenValidateSeconds: 7200
+        scope: "*"
+      clients[1]:
+        clientId: ituac-client-gateway
+        clientSecret: ituacClientSecret
+        accessTokenValidateSeconds: 7200
+        scope: "*"
