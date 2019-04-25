@@ -26,28 +26,45 @@ security:
       id: browser-service
       user-info-uri: http://localhost:7979/uac/user
       
-ituac:
-  security:
-    social:
-      filterProcessesUrl: /auth/callback
-  jwtSigningKey: ituacCloud
+ituaccloud:
+  enableSqlLogInterceptor: false
+  auth:
+    rest-pwd-url: http://dev-login.paascloud.net/resetPwd?resetPwdKey=
+    active-user-url: http://localhost:7979/uac/auth/activeUser/
+    refresh-token-url: http://localhost:7979/uac/oauth/token
+  token:
+    interceptor:
+      enable: true
   oauth2:
+    jwtSigningKey: ituaccloud
     client:
       id: ${security.oauth2.resource.id}
-      accessTokenUrl: http://localhost:7979/uac/oauth/token
+      accessTokenUrl: ${security.oauth2.client.access-token-uri}
       clientId: ${security.oauth2.client.clientId}
       clientSecret: ${security.oauth2.client.clientSecret}
       clientAuthenticationScheme: header
-
-oauth2:
+  security:
+    social:
+      filterProcessesUrl: /auth/callback
+    code:
+      image:
+        expireIn: 180
+        url: /auth/register,/auth/submitResetPwdEmail,/auth/code/sms
+      sms:
+        expireIn: 600
+        url: /uac/auth/submitResetPwdPhone
+        mobileMaxSendCount: 1
+        ipMaxSendCount: 2
+        totalMaxSendCount: 3
+    oauth2:
       tokenStore: jwt
       clients[0]:
-        clientId: ituac-client-uac
-        clientSecret: ituacClientSecret
+        clientId: ituaccloud-client-uac
+        clientSecret: ituacCloudClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
       clients[1]:
-        clientId: ituac-client-gateway
-        clientSecret: ituacClientSecret
+        clientId: ituaccloud-browser
+        clientSecret: ituacCloudClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
