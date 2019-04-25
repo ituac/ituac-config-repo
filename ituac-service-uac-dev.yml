@@ -27,6 +27,9 @@ security:
       user-info-uri: http://localhost:7979/uac/user
       
 ituac:
+  security:
+    social:
+      filterProcessesUrl: /auth/callback
   oauth2:
     client:
       id: ${security.oauth2.resource.id}
