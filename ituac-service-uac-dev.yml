@@ -26,7 +26,7 @@ security:
       id: browser-service
       user-info-uri: http://localhost:7979/uac/user
       
-ituaccloud:
+ituac:
   enableSqlLogInterceptor: false
   auth:
     rest-pwd-url: http://dev-login.paascloud.net/resetPwd?resetPwdKey=
