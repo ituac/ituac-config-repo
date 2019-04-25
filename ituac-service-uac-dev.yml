@@ -30,6 +30,7 @@ ituac:
   security:
     social:
       filterProcessesUrl: /auth/callback
+  jwtSigningKey: ituacCloud
   oauth2:
     client:
       id: ${security.oauth2.resource.id}
