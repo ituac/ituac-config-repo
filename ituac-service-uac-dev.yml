@@ -8,6 +8,11 @@ spring:
     url: jdbc:mysql://192.168.100.77:3306/ituac_uac?characterEncoding=utf8&useSSL=false
 
 
+liquibase:
+  change-log: classpath:liquibase/index.xml
+  user: ${spring.datasource.username}
+  password: ${spring.datasource.password}
+  url: ${spring.datasource.url}
 
 
 security:
