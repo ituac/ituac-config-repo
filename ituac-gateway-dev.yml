@@ -15,10 +15,13 @@ zuul:
     connect-timeout-millis: 60000
   forceOriginalQueryStringEncoding: true
   routes:
-    uac-route:
+    uac-route:    #认证服务
+      # 响应路径
       path: /uac/**
+      # 敏感头信息
       sensitiveHeaders:
 #      strip-prefix: false
+      # 重定向到的服务，根据服务Id昵称从注册中心访问服务地址
       service-id: ituac-service-uac
       ribbon:
         eager-load:
@@ -28,6 +31,8 @@ zuul:
         OkToRetryOnAllOperations: false
         ConnectTimeout: 10000
         ReadTimeout: 10000
+   #添加代理头
+   add-proxy-headers: true
         
         
 security:
