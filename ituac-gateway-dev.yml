@@ -35,13 +35,13 @@ security:
     client:
       clientId: ituac-client-gateway
       clientSecret: ituacCloudClientSecret
-      access-token-uri: http://ituaccloud-gateway:7979/uac/oauth/token
-      user-authorization-uri: http://ituaccloud-gateway:7979/uac/oauth/authorize
+      access-token-uri: http://127.0.0.1:7979/uac/oauth/token
+      user-authorization-uri: http://127.0.0.1:7979/uac/oauth/authorize
     resource:
-      user-info-uri: http://ituaccloud-gateway:7979/uac/user
+      user-info-uri: http://127.0.0.1:7979/uac/user
       prefer-token-info: false
       jwt:
-        key-uri: http://ituac-service-uac:8000/oauth/token
+        key-uri: http://127.0.0.1:8000/oauth/token
 
 proxy:
   auth:
