@@ -31,8 +31,8 @@ zuul:
         OkToRetryOnAllOperations: false
         ConnectTimeout: 10000
         ReadTimeout: 10000
-   #添加代理头
-   add-proxy-headers: true
+  #添加代理头
+  add-proxy-headers: true
         
         
 security:
