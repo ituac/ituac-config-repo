@@ -7,6 +7,22 @@ spring:
   datasource:
     url: jdbc:mysql://192.144.187.200:3306/ituac_uac?characterEncoding=utf8&useSSL=false
 
+mybatis:
+  type-aliases-package: com.paascloud.provider.model.domain
+  mapper-locations: classpath:mapper/*.xml,classpath*:sdk/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+mapper:
+  mappers: org.ituac.uac.mapper.UacUserMapper
+  not-empty: false
+  identity: MYSQL
+  
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
 
 liquibase:
   change-log: classpath:liquibase/index.xml
