@@ -75,11 +75,16 @@ ituac:
     oauth2:
       tokenStore: jwt
       clients[0]:
+        clientId: ituac-zuul-server
+        clientSecret: ituacGatewaySecret
+        accessTokenValidateSeconds: 7200
+        scope: "*"
+      clients[1]:
         clientId: ituaccloud-client-uac
         clientSecret: ituacCloudClientSecret
         accessTokenValidateSeconds: 7200
         scope: "*"
-      clients[1]:
+      clients[2]:
         clientId: ituaccloud-browser
         clientSecret: ituacCloudClientSecret
         accessTokenValidateSeconds: 7200
