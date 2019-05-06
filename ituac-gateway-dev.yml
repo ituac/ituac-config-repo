@@ -41,13 +41,13 @@ security:
     enabled: false
   oauth2:
     client:
-      access-token-uri: http://localhost:8000/uaa/oauth/token #令牌端点
-      user-authorization-uri: http://localhost:8000/uaa/oauth/authorize #授权端点
-      client-id: zuul_server #OAuth2客户端ID
-      client-secret: secret #OAuth2客户端密钥
+      access-token-uri: http://localhost:8000/uac/oauth/token #令牌端点
+      user-authorization-uri: http://localhost:8000/uac/oauth/authorize #授权端点
+      client-id: ituac_zuul_server #OAuth2客户端ID
+      client-secret: ituacGatewaySecret #OAuth2客户端密钥
     resource:
       jwt:
-        key-value: springcloud123 #使用对称加密方式，默认算法为HS256
+        key-value: 123456 #使用对称加密方式，默认算法为HS256
 
 ituacc:
   enableSqlLogInterceptor: false
