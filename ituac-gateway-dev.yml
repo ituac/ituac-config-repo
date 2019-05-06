@@ -43,7 +43,7 @@ security:
     client:
       access-token-uri: http://localhost:8000/uac/oauth/token #令牌端点
       user-authorization-uri: http://localhost:8000/uac/oauth/authorize #授权端点
-      client-id: ituac_zuul_server #OAuth2客户端ID
+      client-id: ituac-zuul-server #OAuth2客户端ID
       client-secret: ituacGatewaySecret #OAuth2客户端密钥
     resource:
       jwt:
